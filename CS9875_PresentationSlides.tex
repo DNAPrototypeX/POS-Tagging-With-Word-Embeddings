@@ -1,0 +1,66 @@
+\documentclass{beamer}
+\usetheme{Malmoe}
+\usecolortheme{beetle}
+%\usepackage[left=2cm, right=2cm, top=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage{amsmath}
+\usepackage{mathtools,amssymb,amsfonts}
+\usepackage{hyperref}
+\usepackage{graphicx,float}
+
+\title{Part-of-Speech Tagging with Word Embeddings}
+\subtitle{CS 9875 Final Project}
+\author[Juhani Dickinson]{Juhani Dickinson}
+\date{\today}
+
+%Copied from Stackexchange at https://tex.stackexchange.com/a/178803
+\AtBeginSection[]{
+	\begin{frame}
+	\vfill
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+		\usebeamerfont{title}\secname\par%
+	\end{beamercolorbox}
+	\vfill
+	\end{frame}
+}
+
+\makeatletter
+\patchcmd{\beamer@section}{{#2}{\the\c@page}}{{#1}{\the\c@page}}{}{}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+\end{frame}
+
+\section[Section_Shortname]{Section_1_Longname}
+\subsection*{Subsection_1}
+\begin{frame}
+	\frametitle{Slide_Title}
+	Slide text
+\end{frame}
+\begin{frame}
+	\frametitle{Slide_Title_2}
+	\begin{center}
+	Slide text 2
+	\end{center}
+\end{frame}
+\subsection*{Subsection_2}
+\begin{frame}
+	Slide text
+\end{frame}
+%https://tex.stackexchange.com/questions/699195/how-to-use-texorpdfstring-correctly-and-properly
+\subsection*{Subsection \texorpdfstring{$C_3$}{C_3}}
+\begin{frame}
+	\frametitle{Slide_Title}
+	Slide text
+\end{frame}
+
+\end{document}
