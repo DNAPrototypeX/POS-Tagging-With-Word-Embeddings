@@ -21,12 +21,16 @@ sources:
 	notes:
 		<>
 
-problem introduction:
-	<>
+problem introduction/background:
+	part-of-speech tagging is a well-known natural language processing (NLP) problem
+	given a sentence, <>
 
 proposed idea:
 	<>
 
 dataset(s):
-	brown corpus
+	brown corpus:
+		1 million words
+		American English printed in 1961
+		source: NLTK
 	<>
