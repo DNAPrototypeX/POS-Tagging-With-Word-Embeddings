@@ -1,8 +1,23 @@
 presentation notes:
 
 sources:
-[1] <title>
-	link: <>
+[1] A Machine Learning Approach to POS Tagging
+	link: https://link.springer.com/article/10.1023/A:1007673816718
+	notes:
+		<>
+
+[2] Part of speech tagging: a systematic review of deep learning and machine learning approaches
+	link: https://link.springer.com/article/10.1186/s40537-022-00561-Y
+	notes:
+		<>
+
+[3] A comparative analysis of deep learning and machine learning for POS tagging
+	link: https://www.sciencedirect.com/science/article/abs/pii/S0957417425016471
+	notes:
+		<>
+
+[4] Probing BERT models with part-of-speech tagging
+	link: https://pageperso.lis-lab.fr/benoit.favre/pstaln/09_embedding_evaluation.html
 	notes:
 		<>
 
@@ -13,4 +28,5 @@ proposed idea:
 	<>
 
 dataset(s):
+	brown corpus
 	<>
