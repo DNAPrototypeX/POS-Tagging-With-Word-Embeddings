@@ -21,6 +21,16 @@ sources:
 	notes:
 		<>
 
+@article{BERT,
+author = {Mikolov, Tomas and Chen, Kai and Corrado, G.s and Dean, Jeffrey},
+year = {2013},
+month = {01},
+pages = {},
+title = {Efficient Estimation of Word Representations in Vector Space},
+volume = {2013},
+journal = {Proceedings of Workshop at ICLR}
+}
+
 problem introduction:
 	<>
 
