@@ -1,0 +1,16 @@
+presentation notes:
+
+sources:
+[1] <title>
+	link: <>
+	notes:
+		<>
+
+problem introduction:
+	<>
+
+proposed idea:
+	<>
+
+dataset(s):
+	<>
