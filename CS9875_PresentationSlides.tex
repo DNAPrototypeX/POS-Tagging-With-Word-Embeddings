@@ -178,8 +178,43 @@ Word2Vec Training Procedures
   \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
-  
+\begin{frame}\centering
+  How do we use these embeddings?
 \end{frame}
 
+\begin{frame}\centering
+  How do we use these embeddings?\\ 
+  As input for a downstream model:
+  SVM, Boosting, CNN, etc.
+\end{frame}
+
+\section[Evaluation and Theoretical Analysis]{Evaluation and Theoretical Analysis}
+
+%https://media.geeksforgeeks.org/wp-content/uploads/20230410164437/AUC-ROC-Curve.webp
+
+\subsection*{Evaluation Metrics}
+\begin{frame}\centering
+  \frametitle{Evaluation Metrics}
+  We will evaluate each of our models using F1 score and AUC-ROC adapted for this multi-class classification problem.
+  \bigskip
+  \begin{columns}
+  \begin{column}{.5\linewidth}\centering
+    \includegraphics[width=\linewidth]{assets/AUC-ROC-Curve.png}\par
+    AUC-ROC
+  \end{column}
+
+ \end{columns} 
+\end{frame}
+
+\subsection*{Theoretical Analysis}
+\begin{frame}\centering
+ \frametitle{Theoretical Analysis}
+ We will conduct a theoretical analysis on the word embedding models, and the downstream classifier models.
+\end{frame}
+
+\subsection*{Anticipated Results}
+\begin{frame}\centering
+  \frametitle{Anticipated Results}
+  We anticipate achieving near perfect scores in both evaluation metrics using contextual embeddings from BERT and a simple classification model like an SVM.
+\end{frame}
 \end{document}

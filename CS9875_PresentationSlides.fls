@@ -428,6 +428,11 @@ INPUT ./assets/mlm.png
 INPUT ./assets/mlm.png
 INPUT ./assets/mlm.png
 INPUT ./assets/mlm.png
+INPUT ./assets/AUC-ROC-Curve.png
+INPUT ./assets/AUC-ROC-Curve.png
+INPUT ./assets/AUC-ROC-Curve.png
+INPUT ./assets/AUC-ROC-Curve.png
+INPUT ./assets/AUC-ROC-Curve.png
 OUTPUT CS9875_PresentationSlides.nav
 OUTPUT CS9875_PresentationSlides.toc
 OUTPUT CS9875_PresentationSlides.snm

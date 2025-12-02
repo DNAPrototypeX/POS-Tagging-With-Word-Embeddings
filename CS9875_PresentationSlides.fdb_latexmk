@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1764705266.39835 "CS9875_PresentationSlides.tex" "CS9875_PresentationSlides.pdf" "CS9875_PresentationSlides" 1764705267.61595 2
+["pdflatex"] 1764707769.82382 "CS9875_PresentationSlides.tex" "CS9875_PresentationSlides.pdf" "CS9875_PresentationSlides" 1764707771.15136 2
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1755987285 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1755987285 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1755987285 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -211,11 +211,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1755987285 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1763964195 5372601 53b09661df7022349a0e42085356a83b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1763964153 2639030 ee5f3fefda43ba7c17ea85e22a2fa2bd ""
-  "CS9875_PresentationSlides.aux" 1764705267.56682 4071 c1a9a9bc53f2f9bed00f984bbe5c0e77 "pdflatex"
-  "CS9875_PresentationSlides.nav" 1764705267.56862 2808 4cbfc45f98692bc2bf6606b0242de8f2 "pdflatex"
-  "CS9875_PresentationSlides.out" 1764705267.56862 1021 5f4ffd23e6ef2434c15175e952e273a6 "pdflatex"
-  "CS9875_PresentationSlides.tex" 1764705266.06588 4669 86fad20ae655ae116be2789551fd6362 ""
-  "CS9875_PresentationSlides.toc" 1764705267.56862 110 28ac58a33a7d879f15772d95867cd27e "pdflatex"
+  "CS9875_PresentationSlides.aux" 1764707771.09256 5619 fd56608b46e57566f102b161ab3c3305 "pdflatex"
+  "CS9875_PresentationSlides.nav" 1764707771.09376 3924 c2d1f2c65b56e2b3090c85c1604b20e1 "pdflatex"
+  "CS9875_PresentationSlides.out" 1764707771.09376 1718 1814ba135472bb5d2b9ae97dbe06ef8f "pdflatex"
+  "CS9875_PresentationSlides.tex" 1764707768.14334 5900 935e49bcdb7dfe22c327fa2ba51bd59b ""
+  "CS9875_PresentationSlides.toc" 1764707771.09376 182 96f33d806ba80e41e9edaf4de3a7677c "pdflatex"
+  "assets/AUC-ROC-Curve.png" 1764706574.13331 25723 2c3fb2c82f3ffdbe2d74ce903d477c38 ""
   "assets/cbow.png" 1764698260.13183 73713 57f4e9beb86f82ab1cf4176b13b4927a ""
   "assets/mlm.png" 1764702986.53378 11669 e24294794d9c7c7820b7538f0eb8a843 ""
   "assets/skipgram.png" 1764698264.74034 69696 8ce02cf49e38b0d25d041da04db0d16b ""

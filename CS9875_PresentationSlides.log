@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.24)  2 DEC 2025 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.24)  2 DEC 2025 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -838,7 +838,7 @@ and I'll forget about whatever was undefined.
 [8
 
 ]
-<assets/word-embedding-example.png, id=344, 770.88pt x 578.16pt>
+<assets/word-embedding-example.png, id=381, 770.88pt x 578.16pt>
 File: assets/word-embedding-example.png Graphic file (type png)
 <use assets/word-embedding-example.png>
 Package pdftex.def Info: assets/word-embedding-example.png  used on input line 81.
@@ -852,7 +852,7 @@ Package pdftex.def Info: assets/word-embedding-example.png  used on input line 8
 [10
 
 ]
-<assets/cbow.png, id=418, 1018.80624pt x 892.33376pt>
+<assets/cbow.png, id=459, 1018.80624pt x 892.33376pt>
 File: assets/cbow.png Graphic file (type png)
 <use assets/cbow.png>
 Package pdftex.def Info: assets/cbow.png  used on input line 105.
@@ -869,7 +869,7 @@ LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inpu
  (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
-<assets/skipgram.png, id=419, 949.5475pt x 899.36pt>
+<assets/skipgram.png, id=460, 949.5475pt x 899.36pt>
 File: assets/skipgram.png Graphic file (type png)
 <use assets/skipgram.png>
 Package pdftex.def Info: assets/skipgram.png  used on input line 105.
@@ -887,12 +887,12 @@ Package pdftex.def Info: assets/skipgram.png  used on input line 105.
 [13
 
 ]
-<assets/transformer.png, id=530, 796.9775pt x 810.02625pt>
+<assets/transformer.png, id=577, 796.9775pt x 810.02625pt>
 File: assets/transformer.png Graphic file (type png)
 <use assets/transformer.png>
 Package pdftex.def Info: assets/transformer.png  used on input line 145.
 (pdftex.def)             Requested size: 122.91406pt x 124.92241pt.
-<assets/mlm.png, id=531, 803.0pt x 803.0pt>
+<assets/mlm.png, id=578, 803.0pt x 803.0pt>
 File: assets/mlm.png Graphic file (type png)
 <use assets/mlm.png>
 Package pdftex.def Info: assets/mlm.png  used on input line 145.
@@ -910,6 +910,44 @@ Package pdftex.def Info: assets/mlm.png  used on input line 145.
 [16
 
 ]
+
+[17
+
+]
+./CS9875_PresentationSlides.tex:191: Undefined control sequence.
+\beamer@doifinframe ...meslide}\vfill \centeringn 
+                                                  \begin {beamercolorbox}[se...
+l.191 ...sis]{Evaluation and Theoretical Analysis}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+
+[18
+
+]
+<assets/AUC-ROC-Curve.png, id=769, 1926.19624pt x 1084.05pt>
+File: assets/AUC-ROC-Curve.png Graphic file (type png)
+<use assets/AUC-ROC-Curve.png>
+Package pdftex.def Info: assets/AUC-ROC-Curve.png  used on input line 207.
+(pdftex.def)             Requested size: 153.64493pt x 86.4611pt.
+
+
+[19
+
+ <./assets/AUC-ROC-Curve.png>]
+
+[20
+
+]
+
+[21
+
+]
 \tf@nav=\write6
 \openout6 = `CS9875_PresentationSlides.nav'.
 
@@ -925,21 +963,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `CS9875_PresentationSlides.out' has not changed.
-(rerunfilecheck)             Checksum: 5F4FFD23E6EF2434C15175E952E273A6;1021.
+(rerunfilecheck)             Checksum: 1814BA135472BB5D2B9AE97DBE06EF8F;1718.
  ) 
 Here is how much of TeX's memory you used:
- 26623 strings out of 474399
- 529646 string characters out of 5751930
- 901126 words of memory out of 5000000
- 49116 multiletter control sequences out of 15000+600000
+ 26667 strings out of 474399
+ 530227 string characters out of 5751930
+ 901129 words of memory out of 5000000
+ 49146 multiletter control sequences out of 15000+600000
  565587 words of font info for 60 fonts, out of 8000000 for 9000
  523 hyphenation exceptions out of 8191
  128i,19n,123p,1830b,715s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
-Output written on CS9875_PresentationSlides.pdf (16 pages, 428054 bytes).
+Output written on CS9875_PresentationSlides.pdf (21 pages, 467076 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
- 536 compressed objects within 6 object streams
- 40 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 922 PDF objects out of 1000 (max. 8388607)
+ 726 compressed objects within 8 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
