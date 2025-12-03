@@ -9,7 +9,6 @@
 \usepackage{graphicx,float}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
-
 \title{Part-of-Speech Tagging with Word Embeddings}
 \subtitle{CS 9875 Final Project}
 \author{Paul Moore \and Juhani Dickinson}
@@ -77,6 +76,8 @@
   % https://assets.zilliz.com/Figure_Word_Embeddings_b021a5a759.png
   
   \includegraphics[width=0.75\linewidth]{assets/word-embedding-example.png}
+  \bigskip
+  \tiny https://assets.zilliz.com/Figure\_Word\_Embeddings\_b021a5a759.png
   %TODO citation
 \end{frame}
 
@@ -102,6 +103,8 @@
 \end{columns} %TODO citation
 \bigskip
 Word2Vec Training Procedures
+\bigskip
+\tiny https://www.geeksforgeeks.org/nlp/word-embeddings-in-nlp/
 \end{frame}
 
 \begin{frame}
@@ -140,7 +143,13 @@ Word2Vec Training Procedures
   \end{column}
 
   
- \end{columns} 
+ \end{columns}
+ \bigskip
+ \bigskip
+ \bigskip
+ \tiny Transformer architecture: https://deeplobe.ai/wp-content/uploads/2021/04/1.jpg\\
+ \tiny MLM: https://learnopencv.com/wp-content/uploads/2023/10/bert-masked-language-modeling-1.png
+ \tiny Devlin, Jacob; Chang, Ming-Wei; Lee, Kenton; Toutanova, Kristina, 2018. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
  %TODO citation  
 \end{frame}
 
@@ -203,7 +212,10 @@ Word2Vec Training Procedures
     AUC-ROC
   \end{column}
 
- \end{columns} 
+ \end{columns}
+ \bigskip
+ \bigskip
+ \tiny {https://uploads-ssl.webflow.com/6266b596eef18c1931f938f9/64760748f6cfb67f889321ad\_classification\_metrics\_016-min.png}
 \end{frame}
 
 \subsection*{Theoretical Analysis}
@@ -215,6 +227,7 @@ Word2Vec Training Procedures
 \subsection*{Anticipated Results}
 \begin{frame}\centering
   \frametitle{Anticipated Results}
-  We anticipate achieving near perfect scores in both evaluation metrics using contextual embeddings from BERT and a simple classification model like an SVM.
+  We anticipate achieving near perfect scores in both evaluation metrics using contextual embeddings from contextual models like BERT and a simple classification model like an SVM, outperforming static embedding models like Word2Vec.
 \end{frame}
+
 \end{document}
