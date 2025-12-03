@@ -1,3 +1,0 @@
-\beamer@sectionintoc {1}{Section shortname}{3}{0}{1}
-\beamer@sectionintoc {2}{Word Embedding Models}{8}{0}{2}
-\beamer@sectionintoc {3}{Evaluation and Theoretical Analysis}{18}{0}{3}
