@@ -19,7 +19,7 @@
 \AtBeginSection[]{
 	\begin{frame}
 	\vfill
-	\centeringn
+	\centering
 	\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
 		\usebeamerfont{title}\secname\par%
 	\end{beamercolorbox}
@@ -42,31 +42,63 @@
 	\tableofcontents
 \end{frame}
 
-\section[Section shortname]{Section 1 Longname}
-\subsection*{Subsection 1}
+%Juhani's Section
+\section{Part-of-Speech Tagging}
+\subsection*{Parts of Speech}
 \begin{frame}
-	\frametitle{Slide Title}
-	Slide text
+	\frametitle{Parts of Speech}
+	\begin{itemize}
+		\item Each word in a sentence carries out a syntactic role: denote an object, denote an action, modify an object, etc.
+		\item This role is mapped to the word using a part-of-speech (PoS) tag
+	\end{itemize}
 \end{frame}
 \begin{frame}
-	\frametitle{Slide Title 2}
+	\frametitle{Spelled the Same, Used Differently: Syntactic and Semantic Differences}
+	Words can be different parts of speech (do different things) depending on where they are in the sentence and what is around them
+	\begin{enumerate}
+		\item Noun-Verb: ``spot''
+		\begin{itemize}
+			\item ``Your nose has a \underline{spot} on it.'' (N)
+			\item ``Can you \underline{spot} him?'' (V)
+		\end{itemize}
+		\item Noun-Adjective: ``red''
+		\begin{itemize}
+			\item ``The \underline{red} I like is that one.'' (N)
+			\item ``The \underline{red} car has arrived.'' (A)
+		\end{itemize}
+	\end{enumerate}
+\end{frame}
+\subsection*{Tagging}
+\begin{frame}
+	\frametitle{Tagging}
+	Given a sentence, assign a PoS tag to each word in the sentence.\\
 	\begin{center}
-	Slide text 2
+	\begin{tabular}{c c c c c c c c c c}
+		Can&you&spot&the&large&spot&on&your&nose&?
+	\end{tabular}
 	\end{center}
 \end{frame}
-\subsection*{Subsection 2}
 \begin{frame}
-	Slide text
+	\frametitle{Tagging}
+	Given a sentence, assign a PoS tag to each word in the sentence.\\
+	\begin{center}
+	\begin{tabular}{c c c c c c c c c c}
+		Can&you&spot&the&large&spot&on&your&nose&?\\
+		VB&D&VB&D&Adj&N&PP&D&N&.
+	\end{tabular}
+	\end{center}
 \end{frame}
-
-%https://tex.stackexchange.com/questions/699195/how-to-use-texorpdfstring-correctly-and-properly
-\subsection*{Subsection 3}
 \begin{frame}
-	\frametitle{Slide Title}
-	Slide text
+	\frametitle{Tagging}
+	Given a sentence, assign a PoS tag to each word in the sentence.\\
+	\begin{center}
+	\begin{tabular}{c c c c c c c c c c}
+		Can&you&\underline{spot}&the&large&\underline{spot}&on&your&nose&?\\
+		VB&D&VB&D&Adj&N&PP&D&N&.
+	\end{tabular}
+	\end{center}
+	What makes PoS tagging different from a standard classification task: context is very important.
 \end{frame}
-
-
 
 %NOTE Paul's Section
 
@@ -204,6 +236,18 @@ Word2Vec Training Procedures
   \end{column}
 
  \end{columns} 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Dataset Used}
+	\begin{centering}
+		Brown Corpus:\\
+	\end{centering}
+	\begin{itemize}
+	\item 1 million tagged words, validated by humans
+	\item American English
+	\item Provided by the Natural Language ToolKit (NLTK)
+	\end{itemize}
 \end{frame}
 
 \subsection*{Theoretical Analysis}

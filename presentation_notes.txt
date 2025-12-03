@@ -35,6 +35,7 @@ problem introduction/background:
 	part-of-speech (PoS) tagging is a well-known natural language processing (NLP) problem
 	given a sentence, assign a PoS tag to each word in the sentence
 		"word" may be loosely-used depending on language
+		<put an example on the slides>
 	difference from typical classification task: requires context
 		words can be different parts of speech (do different things) depending on where they are in the sentence and what is around them
 		Noun-Verb:
@@ -48,15 +49,11 @@ problem introduction/background:
 		word sense disambiguation (semantic analysis - which meaning is this word representing?)
 		named entity recognition ("New York" is a name, and not related to new things in York)
 
-proposed idea:
-	<>
-
 dataset(s):
 	brown corpus:
 		1 million words
 		American English printed in 1961
 		source: NLTK
-	<>
 
 results from other studies:
 	<>
