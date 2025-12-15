@@ -1,0 +1,63 @@
+[1]: Parts-of-speech tagging of Nepali texts with Bidirectional LSTM, Conditional Random Fields and HMM
+	link: https://link.springer.com/article/10.1007/s11042-023-15679-1
+	authors: Ashish Pradhan, Archit Yajnik 
+	dataset: Nepali Monolingual Text Corpus ILCI-II
+	embeddings: (not mentioned)
+	model: HMM (bigram), GRNN, SVM, Viterbi, CRF, ++Bi-LSTM
+
+[2]: Evaluating Contextualized Embeddings on 54 Languages in POS Tagging, Lemmatization and Dependency Parsing
+	link: https://arxiv.org/pdf/1908.07448
+	authors: Milan Straka, Jana Straková, Jan Hajič
+	dataset: Universal Dependencies 2.3
+	embeddings: FastText, GRU (character-level embedding), BERT, Flair, ELMo
+	model: UDPipe 2 (Bi-LSTM)
+	notes: stacks embeddings during testing
+
+[3]: Thai sentiment analysis with deep learning techniques: A comparative study based on word embedding, POS-tag, and sentic features
+	link: https://www.sciencedirect.com/science/article/abs/pii/S2210670718325228?casa_token=Frxh7o9-7wYAAAAA:umeTEL9BMp6Yn8kp12Iv4mOFdO1WSWJNBIYfUArN00MZWqfjmmo8bdSenj2ylnj395iBs2eu-bA
+	authors: Kitsuchart Pasupa, Thititorn Seneewong Na Ayutthaya
+	dataset: https://github.com/dsmlr/40-Thai-Children-Stories
+	embeddings: Thai2Vec (Word2Vec), SenticNet2
+	model: Bi-LSTM, LSTM, CNN
+	notes: POS tagging carried out by HMM (trigram)
+
+[4]: Amharic Parts-of-Speech Tagger using Neural Word Embeddings as Features
+	link: https://www.researchgate.net/profile/Mequanent-Muluneh/publication/365428168_Amharic_Parts-of-Speech_Tagger_using_Neural_Word_Embeddings_as_Features/links/6374c3de37878b3e87b754fe/Amharic-Parts-of-Speech-Tagger-using-Neural-Word-Embeddings-as-Features.pdf
+	authors: Mequanent Argaw
+	dataset: The Annotation of Amharic News Documents project
+	embeddings: Word2Vec
+	model: SVM, LSTM, ++Bi-LSTM
+	notes: data preparation using morphological analyser (HornMorpho)
+
+[5]: A Neural Network Model for Part-Of-Speech Tagging of Social Media Texts
+	link: https://aclanthology.org/L18-1446.pdf
+	authors: Sara Meftah, Nasredine Semmar, Fatiha Sadat
+	dataset:
+		ENG: WSJ corpus (source), NPS IRC Chat Corpus (testing), T-PoS corpus (testing), ARK corpus (testing)
+		FRA: French-Tree-Bank (source), French web 2.0 (testing), ExtremeUGC dataset (testing)
+		ESP/ITA/GER: xLiMe Twitter Corpus (80:10:10 train:development:test)
+	embeddings: Word2Vec, FastText, GloVe, CNN (character-level embedding)
+	model: GRU+layers
+	notes: transfer learning is significant in this paper
+
+[6]: Building a Kannada POS Tagger Using Machine Learning and Neural Network Models
+	link: https://arxiv.org/pdf/1808.03175
+	authors: Ketan Kumar Todi, Pruthwik Mishra, and Dipti Misra Sharma
+	dataset: http://ltrc.iiit.ac.in/showfile.php?filename=downloads/kolhi/
+	embeddings: FastText, Bi-LSTM (character-level embedding), CNN (character-level embedding - tested and discarded)
+	model: SVM, ++CRF, StructPercept, SimpleRNN, LSTM, ++Bi-LSTM
+
+[7]: Using Recurrent Neural Networks for Part-of-Speech Tagging and Subject and Predicate Classification in a Sentence
+	link: https://link.springer.com/article/10.2991/ijcis.d.200527.005
+	authors: David Muñoz-Valero, Luis Rodriguez-Benitez, Luis Jimenez-Linares & Juan Moreno-Garcia
+	dataset: American National Corpus
+	embeddings: GloVe
+	model: Bi-GRU
+	notes: this paper claims that GRU performs as well as LSTM with less computational power
+
+[8]: Automatic Amharic Part of Speech Tagging (AAPOST): A Comparative Approach Using Bidirectional LSTM and Conditional Random Fields (CRF) Methods
+	link: https://link.springer.com/chapter/10.1007/978-3-030-43690-2_37
+	authors: Worku Kelemework Birhanie, Miriam Butt 
+	dataset: WIC dataset (by ELRC)
+	embeddings: Word2Vec
+	model: ++Bi-LSTM, CRF
