@@ -61,3 +61,25 @@
 	dataset: WIC dataset (by ELRC)
 	embeddings: Word2Vec
 	model: ++Bi-LSTM, CRF
+
+Papers with code:
+[9]: word2ket: Space-efficient Word Embeddings inspired by Quantum Entanglement 
+	link: https://iclr.cc/virtual_2020/poster_HkxARkrFwB.html
+	authors: Aliakbar Panahi, Seyran Saeedi, Tom Arodz
+	dataset: GIGAWORD
+	embeddings: word2ket
+	model: RNN
+
+[10]: FreeLB: Enhanced Adversarial Training for Natural Language Understanding
+	link: https://iclr.cc/virtual_2020/poster_BygzbyHFvB.html
+	authors: Chen Zhu, Yu Cheng, Zhe Gan, Siqi Sun, Tom Goldstein, Jingjing Liu
+	dataset: GLUE benchmark
+	embeddings: BERT, RoBERTa
+	model: (using FreeLB training) BERT, RoBERTa
+
+[11]: Encoding word order in complex embeddings
+	link: https://iclr.cc/virtual_2020/poster_Hke-WTVtwr.html
+	authors: Benyou Wang, Donghao Zhao, Christina Lioma, Qiuchi Li, Peng Zhang, Jakob Grue Simonsen
+	dataset: CR, MPQA, SUBJ, MR, SST, TREC
+	embeddings: custom complex-number order-aware embedding (sometimes initialised with Word2Vec?)
+	model: Fasttext, LSTM, CNN, TransformerNN
