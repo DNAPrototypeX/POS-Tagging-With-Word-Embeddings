@@ -7,6 +7,7 @@
 *.snm
 *.synctex.gz
 *.toc
+*.blg
 report/*.aux
 report/*.fdb_latexmk
 report/*.fls
@@ -16,3 +17,4 @@ report/*.out
 report/*.snm
 report/*.synctex.gz
 report/*.toc
+report/*.blg
