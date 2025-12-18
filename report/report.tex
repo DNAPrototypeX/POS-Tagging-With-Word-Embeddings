@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{linguex}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -27,20 +28,49 @@ ABSTRACT
 \end{abstract}
 
 \begin{IEEEkeywords}
-pos tagging, nlp, word embedding, contextual word embedding
+pos tagging, part of speech, nlp, word embedding, contextual word embedding
 \end{IEEEkeywords}
 
 \section{Introduction}
-pass
+\subsection{Parts of Speech}
+In a sentence, each word has a syntactic role to play. In the sentence ``The brown dog runs quickly towards food.'', ``dog'' denotes a thing, ``brown'' modifies or describes ``dog'', ``runs'' denotes an action, and so on. These syntactic roles are commonly referred to as ``parts of speech'', and are mapped to words using part-of-speech tags. However, this is not a one-to-one mapping. Many words have multiple meanings, and in many cases, these different meanings play different syntactic roles, mapping them to different parts of speech. For example, the word ``orange'', spelled and pronounced identically, can be either a noun or an adjective, as seen in sentences (\ref{orange_n}) and (\ref{orange_adj}).
+\begin{align}
+	\text{``I often eat an }&\text{\underline{orange} after working out.'' (Noun)}\label{orange_n}\\
+	\text{``The }&\text{\underline{orange} car has arrived.'' (Adjective)}\label{orange_adj}
+\end{align}
+Figuring out what part of speech a word has is not an unsolvable task, however. Where a word is in the sentence and what words surround it play a major role in disambiguating between syntactic roles. In (\ref{orange_n}), the word after ``orange'' is ``after'', which is an adverb. ``Orange'' must is either an adjective or a noun, and since the following word is an adverb, it cannot be an adjective. In (\ref{orange_adj}), the words surrounding ``orange'' are ``the'' and ``car'', which are a determiner and a noun respectively. In this position, ``orange'' describes ``car'', making it an adjective.
+\subsection{Part-of-Speech (PoS) Tagging}
+The task of PoS tagging (often simply called tagging) is as follows: given a sentence, label each word in the sentence with the PoS tag that describes its syntactic role, seen below for sentence \ref{pos_tag_example}.
+\addtocounter{ExNo}{\value{equation}}\stepcounter{equation} %matching the linguistic example counter to align counter
+%This does need 2 blank lines under it to start a new paragraph
+\exg.\label{pos_tag_example} Can you \underline{spot} the large \underline{spot} on your nose ?\\
+	{} AUX D VB D ADJ N PP D N .\\
 
-\section{Background}
+
+What makes the task of tagging challenging is the contextual requirement: without it, both instances of ``spot'' in sentence \ref{pos_tag_example} would be tagged as either VB or N. Because of this, non-naive tagger implementations leverage some level of context to perform their task. Simple implementations like $n$-gram taggers assign tags to words based on both the word itself and the tags of the preceding $n$ words.
+%something about n-gram taggers?
+\subsection{Word Embeddings}
+A common issue with simple tagging implementations is resistance to parallelisation. Any operation below the level of sentence must be linear, as the tag of the current word depends on the tag(s) of the previous words. To get around the linear-time requirement, some taggers use word embeddings, which represent words as vectors. This embedding takes into account the surrounding words, so that the meaning and context of each word is stored in the embedding. Using embeddings, tagging can be parallelised at the level of individual words.
+\subsubsection{Static Word Embeddings}
+pass
+\subsubsection{Contextual Word Embeddings}
 pass
 
 \section{Related Work}
 pass
+%papers that do meta-studies but more general
 
 \section{Motivation}
-pass
+%meaning disambiguation and understanding
+%decoder-only LLMs do worse at meaning understanding https://aclanthology.org/2024.findings-acl.967/
+
+%machine translation
+Part-of-speech tagging plays a pivotal role in machine translation. <>
+%order of words
+For any two languages, it is highly likely that the word order in one is different in some way from the word order in the other. For instance, adjectives in French come after the noun they modify (``les ciseaux rouge''), while in English they come before that same noun (``the red scissors''). Since syntactic roles and thus parts of speech are invariant between languages, part-of-speech tags are useful for knowing how and where to move words and phrases when translating.
+%meaning disambiguation (brief example?)
+%<>
+%improves translation in low-resource language pairs https://www.sciencedirect.com/science/article/pii/S2405844022016632
 
 \section{Methods}
 pass
