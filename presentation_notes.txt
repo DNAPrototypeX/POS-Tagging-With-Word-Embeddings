@@ -31,29 +31,12 @@ volume = {2013},
 journal = {Proceedings of Workshop at ICLR}
 }
 
-problem introduction/background:
-	part-of-speech (PoS) tagging is a well-known natural language processing (NLP) problem
-	given a sentence, assign a PoS tag to each word in the sentence
-		"word" may be loosely-used depending on language
-		<put an example on the slides>
-	difference from typical classification task: requires context
-		words can be different parts of speech (do different things) depending on where they are in the sentence and what is around them
-		Noun-Verb:
-			"spot"
-			"Your nose has a spot on it." (N) vs "Can you spot him?" (V)
-		Noun-Adjective:
-			"red"
-			"The red I like is that one." (N) vs "The red car has arrived." (A)
-	uses of PoS tagging:
-		machine translation
-		word sense disambiguation (semantic analysis - which meaning is this word representing?)
-		named entity recognition ("New York" is a name, and not related to new things in York)
+problem introduction:
+	<>
+
+proposed idea:
+	<>
 
 dataset(s):
-	brown corpus:
-		1 million words
-		American English printed in 1961
-		source: NLTK
-
-results from other studies:
+	brown corpus
 	<>
