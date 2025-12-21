@@ -56,8 +56,11 @@ What makes the task of tagging challenging is the contextual requirement: withou
 
 \subsection{Word Embeddings}
 A common issue with simple tagging implementations is resistance to parallelisation. Any operation below the level of sentence must be linear, as the tag of the current word depends on the tag(s) of the previous words.
-To get around the linear-time requirement, some taggers use word embeddings, which represent words as vectors. This embedding takes into account the surrounding words, so that the meaning and context of each word is stored in the embedding. Using embeddings, tagging can be parallelised at the level of individual words.
-<--HOW DO THEY WORK?-->
+To get around the linear-time requirement, some taggers use word embeddings, which represent words as vectors. This embedding function takes into account the surrounding words, so that the meaning and context of each word is stored in the embedding.
+Word embeddings are classifier models usually trained using one of two methods: predict target word from context (Continuous Bag of Words, CBOW) and predict context from target word (Skipgram).
+In CBOW, the words surrounding the target word are mapped to one-hot vectors, which are each then projected down to a dense vector by the classifier model and averaged together. This averaged vector is then used to predict the target word.
+In Skipgram, the target word is mapped to a one-hot vector and then projected down to a dense vector by the classifier. This is done for multiple target words, the dense vectors of which are averaged together and used to predict the context in which the target words appear.
+Using embeddings, tagging can be parallelised at the level of individual words.
 
 \subsubsection{Static Word Embeddings}
 %source: https://courses.grainger.illinois.edu/cs546/sp2020/Slides/Lecture04.pdf
@@ -72,6 +75,7 @@ Contextual embeddings map these tokens to vectors, preserving specific meaning. 
 \section{Related Work}
 pass
 %papers that do meta-studies but more general
+%paper about cross-linguistic transfer but it only used BERT variants
 %the embeddings we're working with: FLAIR, XLNet, BERT, T5, FastText
 %we need to say something about BERT using contextual word embeddings
 
