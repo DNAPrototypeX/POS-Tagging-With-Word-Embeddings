@@ -129,7 +129,7 @@ Although many languages were represented in the studies selected for review, the
 
 \subsection{Studies on Cross-Linguistic Transfer}
 %paper about cross-linguistic transfer but it only used 1 BERT variant
-Discussed above in \ref{sec_motivations}, (<ref>) provides crucial insights into the efficacy and patterns of cross-linguistic transfer. In this study, source-target language pairs were created from the chosen languages, and the XLM-RoBERTa multilingual transformer model was fine-tuned on each source language to serve as the POS tagger. Each pair was then analysed in terms of model performance, both quantitatively through precision, recall, and F1 scores, and qualitatively, through examining the areas where errors occurred to find commonly-appearing linguistic features such as morphology.
+Discussed above in Section \ref{sec_motivations}, (<ref>) provides crucial insights into the efficacy and patterns of cross-linguistic transfer. In this study, source-target language pairs were created from the chosen languages, and the XLM-RoBERTa multilingual transformer model was fine-tuned on each source language to serve as the POS tagger. Each pair was then analysed in terms of model performance, both quantitatively through precision, recall, and F1 scores, and qualitatively, through examining the areas where errors occurred to find commonly-appearing linguistic features such as morphology.
 However, this study only uses BERT embeddings. <--FINISH THIS-->
 
 %paper on graph label projection
@@ -303,7 +303,6 @@ In our second experiment, we found that higher quality embeddings, and therefore
 This easy generalizability is notable in itself in, as it suggests that an embedding model that performs better than its competition in a high-resource language is likely to perform better than that same competition in a lower-resource language. This is especially useful for studies on other languages, as many studies that used word embeddings for work in other languages used static word embeddings, often Word2Vec (<ref.metastudies>).
 
 \subsection{Pre-Training and Fine-Tuning}
-<<<<<<< HEAD
 While not the focus of this paper, our third experiment revealed that pre-training the classifier head of the tagging model on the source language before fine-tuning the whole model on a target language can result in a performance increase even with the simplest possible classifier. It would not be crazy to assume that the benefits of such pre-training would be amplified by a more sophisticated classification model like many of the state-of-the-art taggers, who use a BiLSTM.
 
 This performance increase for a related low-resource language indicates that linguistic similarities can be taken advantage of for cross-linguistic transfer even without access to a parallel corpus, which is very encouraging for work on low-resource languages that lack such corpora.
@@ -315,11 +314,11 @@ For POS tagging in English, any of the transformer-based models can provide extr
 
 While T5, XLNet, and BERT demonstrated very similar performance when tested on English, BERT fell behind when evaluated on the simulated low-resource related language. Between T5 and XLNet, T5 was marginally more capable of generalizing to the new language.
 
-\subsection{Challenges and Limitations}
+\subsection{Challenges and Limitations}\label{sec_challenges_limitations}
 The experiments resulted in some strange behaviour regarding the macro evaluation metrics. T5 performed quite poorly when trained on Norwegian, but then performed quite well when fine-tuned instead. Conversely, XLNet showed excellent macro precision and recall when trained directly on Norwegian, but its performance tanked when fine-tuned instead. See Tables \ref{table_model_results_norwegian} and \ref{table_model_results_transfered}.
 Since these metrics are measures of performance on rare classes, it is likely that this strange behaviour is a result of randomly donwsampling the Norwegian dataset to simulate a low-resource language. In some cases, the dataset contains sufficient rare class example for the model to learn, but other times there may not be any representation at all. This is a real and fundamental problem when working with low-resource languages and highlights a core limitation of using transfer learning for POS tagging in such languages. 
 
-With the rapidly evolving field of machine learning, new models and architectures are released each year. It is only a matter of time before the top performing models in this paper, like T5, will be outclassed in terms of embedding quality. T5 may currently be the best option for use in POS tagging of English, and its related low-resource languages, this will not be the case forever. Research comparing today's models to the future state-of-the-art for use in this problem may be necessary as the field moves ever forward.
+With the rapidly evolving field of machine learning, new models and architectures are released each year. It is only a matter of time before the top performing models in this paper, like T5, will be outclassed in terms of embedding quality. T5 may currently be the best option for use in POS tagging of English, and its related low-resource languages, but this will not be the case forever. Research comparing today's models to the future state-of-the-art for use in this problem may be necessary as the field moves ever forward.
 
 \section{Conclusion}
 In this paper, we study the POS tagging performance of popular word embeddings for English, as well as briefly examine the theoretical impacts of high-quality word embeddings in English on POS tagging and NLP in other languages.
@@ -327,13 +326,20 @@ In this paper, we study the POS tagging performance of popular word embeddings f
 
 We found that that the transformer-based contextual word embeddings of BERT, XLNet, and T5 performed best with F1 scores all over 97\%, and that contextual word embeddings in general greatly outperformed static word embeddings. This is consistent with linguistic theory, and suggests that properly accounting for and encoding context is important for many NLP tasks even beyond POS tagging.
 
-Regarding the transfer of models between languages, we found that relative performance between embedding models stayed consistent when training embeddings and models on a related language, and furthermore, that this holds for a low-resource related language. This is promising for new work in these languages, and we encourage the use of transformer-based contextual embedding models on low-resource languages wherever possible. <>
+Regarding the transfer of models between languages, we found that relative performance between embedding models stayed consistent when training embeddings and models on a related language, and furthermore, that this holds for a low-resource related language. This is promising for new work in these languages, and we encourage the use of transformer-based contextual embedding models on low-resource languages wherever possible.
 
-Somewhat consistent with existing literature cross-linguistic transfer of POS tags into low-resource languages, we found that training models and embeddings on English before fine-tuning the models on Norwegian raised F1 scores for the best models, T5 and XLNet, when compared to their training results on Norwegian. Interestingly, BERT's performance on this task actually decreased compared to its Norwegian results. While the studies we found on cross-linguistic transfer used RoBERTa (<ref>),(<ref>), a variant of BERT compared to our use of base BERT, it is worth considering the use of T5 and XLNet in future studies on this topic.
+Somewhat consistent with existing literature cross-linguistic transfer of POS tags into low-resource languages, we found that training models and embeddings on English before fine-tuning the models on Norwegian raised F1 scores for the best models, T5 and XLNet, when compared to their training results on Norwegian.
+Interestingly, BERT's performance on this task actually decreased compared to its Norwegian results. While the studies we found on cross-linguistic transfer used RoBERTa (<ref>),(<ref>), a variant of BERT compared to our use of base BERT, it is worth considering the use of T5 and XLNet in future studies on this topic.
 
 \subsection{Future Work}
 %future work on comparing taggers
+As mentioned in Section \ref{sec_challenges_limitations}, the field of machine learning is constantly evolving. Studies like this one are always necessary to examine the new advances in embedding models, classifiers, and datsets, both in English (as tested here) and in other high-resource languages.
+In terms of short-term work, this study can be replicated using the same architectures on different languages, especially languages not related to English, which helps to generalise the relative performance findings to a wider variety of languages families.
+Considering the prevalence of LLMs in the past few years, it is possible that improvements in their models in the coming years will make them competitive in accuracy with the current state-of-the-art transformer embedding models.
+
 %future work on low-resource languages
+Considering our baseline test on cross-linguistic transfer from English to a simulated low-resource Norwegian, there are many directions to go for future work on low-resource languages. In the short term, attempting to generalise these findings by replicating the methodology using a few low-resource languages as targets provides additional empirical evidence for the usefulness of a high-quality embedding such as T5 in low-resource contexts.
+In the longer term, studies such as (<ref.crossfamilies>) should be revisited either using the best-performing embedding to keep expected performance metrics up to date with the current state-of-the-art as well as to find any notable changes in performance between languages with certain (lack of) linguistic features. This can be further expanded to test multiple embeddings simultaneously, as what is a great embedding for cross-linguistic transfer in one language family may not be the best or even good at cross-linguistic transfer in other language families.
 
 \section{Acknowledgements}
 We did not use any LLMs to assist in writing this report.
