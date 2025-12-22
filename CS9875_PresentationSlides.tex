@@ -9,7 +9,6 @@
 \usepackage{graphicx,float}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
-
 \title{Part-of-Speech Tagging with Word Embeddings}
 \subtitle{CS 9875 Final Project}
 \author{Paul Moore \and Juhani Dickinson}
@@ -19,7 +18,7 @@
 \AtBeginSection[]{
 	\begin{frame}
 	\vfill
-	\centeringn
+	\centering
 	\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
 		\usebeamerfont{title}\secname\par%
 	\end{beamercolorbox}
@@ -42,31 +41,63 @@
 	\tableofcontents
 \end{frame}
 
-\section[Section shortname]{Section 1 Longname}
-\subsection*{Subsection 1}
+%Juhani's Section
+\section{Part-of-Speech Tagging}
+\subsection*{Parts of Speech}
 \begin{frame}
-	\frametitle{Slide Title}
-	Slide text
+	\frametitle{Parts of Speech}
+	\begin{itemize}
+		\item Each word in a sentence carries out a syntactic role: denote an object, denote an action, modify an object, etc.
+		\item This role is mapped to the word using a part-of-speech (PoS) tag
+	\end{itemize}
 \end{frame}
 \begin{frame}
-	\frametitle{Slide Title 2}
+	\frametitle{Spelled the Same, Used Differently: Syntactic and Semantic Differences}
+	Words can be different parts of speech (do different things) depending on where they are in the sentence and what is around them
+	\begin{enumerate}
+		\item Noun-Verb: ``spot''
+		\begin{itemize}
+			\item ``Your nose has a \underline{spot} on it.'' (N)
+			\item ``Can you \underline{spot} him?'' (V)
+		\end{itemize}
+		\item Noun-Adjective: ``orange''
+		\begin{itemize}
+			\item ``I like to eat an \underline{orange} after working out.'' (N)
+			\item ``The \underline{orange} car has arrived.'' (A)
+		\end{itemize}
+	\end{enumerate}
+\end{frame}
+\subsection*{Tagging}
+\begin{frame}
+	\frametitle{Tagging}
+	Given a sentence, assign a PoS tag to each word in the sentence.\\
 	\begin{center}
-	Slide text 2
+	\begin{tabular}{c c c c c c c c c c}
+		Can&you&spot&the&large&spot&on&your&nose&?
+	\end{tabular}
 	\end{center}
 \end{frame}
-\subsection*{Subsection 2}
 \begin{frame}
-	Slide text
+	\frametitle{Tagging}
+	Given a sentence, assign a PoS tag to each word in the sentence.\\
+	\begin{center}
+	\begin{tabular}{c c c c c c c c c c}
+		Can&you&spot&the&large&spot&on&your&nose&?\\
+		VB&D&VB&D&Adj&N&PP&D&N&.
+	\end{tabular}
+	\end{center}
 \end{frame}
-
-%https://tex.stackexchange.com/questions/699195/how-to-use-texorpdfstring-correctly-and-properly
-\subsection*{Subsection 3}
 \begin{frame}
-	\frametitle{Slide Title}
-	Slide text
+	\frametitle{Tagging}
+	Given a sentence, assign a PoS tag to each word in the sentence.\\
+	\begin{center}
+	\begin{tabular}{c c c c c c c c c c}
+		Can&you&\underline{spot}&the&large&\underline{spot}&on&your&nose&?\\
+		VB&D&VB&D&Adj&N&PP&D&N&.
+	\end{tabular}
+	\end{center}
+	What makes PoS tagging challenging: context is very important.
 \end{frame}
-
-
 
 %NOTE Paul's Section
 
@@ -77,6 +108,8 @@
   % https://assets.zilliz.com/Figure_Word_Embeddings_b021a5a759.png
   
   \includegraphics[width=0.75\linewidth]{assets/word-embedding-example.png}
+  \bigskip
+  \tiny https://assets.zilliz.com/Figure\_Word\_Embeddings\_b021a5a759.png
   %TODO citation
 \end{frame}
 
@@ -90,27 +123,29 @@
 \begin{frame}\centering
   \frametitle{Word2Vec}
   \begin{columns}
-    \begin{column}{.4\linewidth}\centering
-      \includegraphics[width=\linewidth]{assets/cbow.png}\par 
-      CBOW
-    \end{column}
+	\begin{column}{.4\linewidth}\centering
+	  \includegraphics[width=\linewidth]{assets/cbow.png}\par 
+	  CBOW
+	\end{column}
 
-    \begin{column}{.4\linewidth}\centering
-      \includegraphics[width=\linewidth]{assets/skipgram.png}\par 
-      Skip Gram
-    \end{column}
+	\begin{column}{.4\linewidth}\centering
+	  \includegraphics[width=\linewidth]{assets/skipgram.png}\par 
+	  Skip Gram
+	\end{column}
 \end{columns} %TODO citation
 \bigskip
 Word2Vec Training Procedures
+\bigskip
+\tiny https://www.geeksforgeeks.org/nlp/word-embeddings-in-nlp/
 \end{frame}
 
 \begin{frame}
   \frametitle{Word2Vec}
   \[\begin{bmatrix}
-    W_{00} & W_{01} & W_{02} & ...\\
-    W_{10} & W_{11} & W_{12} & ...\\
-    W_{20} & W_{21} & W_{22} & ...\\
-    ... & ... & ... & ... 
+	W_{00} & W_{01} & W_{02} & ...\\
+	W_{10} & W_{11} & W_{12} & ...\\
+	W_{20} & W_{21} & W_{22} & ...\\
+	... & ... & ... & ... 
   \end{bmatrix}\]
 \end{frame}
 
@@ -130,17 +165,23 @@ Word2Vec Training Procedures
   \frametitle{BERT}
   \begin{columns}
   \begin{column}{.4\linewidth}\centering
-    \includegraphics[width=\linewidth]{assets/transformer.png}\par
-    Transformer architecture
+	\includegraphics[width=\linewidth]{assets/transformer.png}\par
+	Transformer architecture
   \end{column}
 
   \begin{column}{.4\linewidth}\centering
-    \includegraphics[width=\linewidth]{assets/mlm.png}\par
-    MLM
+	\includegraphics[width=\linewidth]{assets/mlm.png}\par
+	MLM
   \end{column}
 
   
- \end{columns} 
+ \end{columns}
+ \bigskip
+ \bigskip
+ \bigskip
+ \tiny Transformer architecture: https://deeplobe.ai/wp-content/uploads/2021/04/1.jpg\\
+ \tiny MLM: https://learnopencv.com/wp-content/uploads/2023/10/bert-masked-language-modeling-1.png
+ \tiny Devlin, Jacob; Chang, Ming-Wei; Lee, Kenton; Toutanova, Kristina, 2018. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
  %TODO citation  
 \end{frame}
 
@@ -148,11 +189,11 @@ Word2Vec Training Procedures
 \begin{frame}\centering
   \frametitle{BERT}
   \begin{tikzpicture}
-    \tikzstyle{io} = [rectangle, minimum width=1.5cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+	\tikzstyle{io} = [rectangle, minimum width=1.5cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
 \tikzstyle{bert} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!60]
 \tikzstyle{arrow} = [thick,->,>=stealth]
-    \node (in1) [io] {token};
-    
+	\node (in1) [io] {token};
+	
 \node (in2) [io, right of=in1, xshift=1cm] {token};
 \node (in3) [io, right of=in2, xshift=1cm ]{token};
 \node (in4) [io, right of=in3, xshift=1cm ] {token};
@@ -193,28 +234,58 @@ Word2Vec Training Procedures
 %https://media.geeksforgeeks.org/wp-content/uploads/20230410164437/AUC-ROC-Curve.webp
 
 \subsection*{Evaluation Metrics}
-\begin{frame}\centering
-  \frametitle{Evaluation Metrics}
-  We will evaluate each of our models using F1 score and AUC-ROC adapted for this multi-class classification problem.
-  \bigskip
-  \begin{columns}
-  \begin{column}{.5\linewidth}\centering
-    \includegraphics[width=\linewidth]{assets/AUC-ROC-Curve.png}\par
-    AUC-ROC
-  \end{column}
+%\begin{frame}\centering
+%	\frametitle{Evaluation Metrics}
+%	We will evaluate each of our models using F1 score and AUC-ROC adapted for this multi-class classification problem.
+%	\bigskip
+%	\begin{columns}
+%	\begin{column}{.5\linewidth}\centering
+%	\includegraphics[width=\linewidth]{assets/AUC-ROC-Curve.png}\par
+%	AUC-ROC
+% 	\end{column}
 
- \end{columns} 
+%	\end{columns}
+%	\bigskip
+%	\bigskip
+%	\tiny {https://uploads-ssl.webflow.com/6266b596eef18c1931f938f9/64760748f6cfb67f889321ad\_classification\_metrics\_016-min.png}
+%\end{frame}
+
+\begin{frame}
+	\frametitle{Dataset Used}
+	\begin{centering}
+		Brown Corpus:\\
+	\end{centering}
+	\begin{itemize}
+	\item 1 million tagged words, validated by humans
+	\item American English
+	\item Provided by the Natural Language ToolKit (NLTK)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Methodology}
+	\begin{itemize}
+	\item 90\%-10\% training-test split
+	\item Using an $\sim$10,000-word subset, splitting only on sentence boundaries
+	\item We will train 6 embedding-classifier combinations on the same training set, and test each using the same testing set.
+	\begin{itemize}
+		\item Embeddings: Word2Vec (Static), BERT, ELMo
+		\item Classifiers: SVM, AdaBoost
+	\end{itemize}
+	\item The performance of each combination will be evaluated using F1 score and AUC-ROC
+	\end{itemize}
 \end{frame}
 
 \subsection*{Theoretical Analysis}
 \begin{frame}\centering
- \frametitle{Theoretical Analysis}
- We will conduct a theoretical analysis on the word embedding models, and the downstream classifier models.
+	\frametitle{Theoretical Analysis}
+	We will conduct a theoretical analysis on the word embedding models.
 \end{frame}
 
 \subsection*{Anticipated Results}
 \begin{frame}\centering
-  \frametitle{Anticipated Results}
-  We anticipate achieving near perfect scores in both evaluation metrics using contextual embeddings from BERT and a simple classification model like an SVM.
+	\frametitle{Anticipated Results}
+	We anticipate achieving near perfect scores in both evaluation metrics using embeddings from contextual models like BERT and a simple classification model like an SVM, outperforming static embedding models like Word2Vec.
 \end{frame}
+
 \end{document}

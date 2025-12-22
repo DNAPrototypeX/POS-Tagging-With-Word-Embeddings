@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from pypalettes import load_cmap
 
-def plot_model_performance_ieee(root_dir="resources/taggers", output_file="training_summary.pdf"):
+def plot_model_performance_ieee(root_dir="resources/taggers", output_file="norwegian_training_summary.pdf"):
 
     width = 3.5
     height = 5.0 
@@ -22,7 +22,7 @@ def plot_model_performance_ieee(root_dir="resources/taggers", output_file="train
         "lines.linewidth": 1.2    
     })
 
-    loss_files = list(Path(root_dir).glob("**/loss.tsv"))
+    loss_files = list(Path(root_dir).glob("*-norwegian-upos-adam/loss.tsv"))
     
     if not loss_files:
         print(f"No loss.tsv files found in '{root_dir}'.")
