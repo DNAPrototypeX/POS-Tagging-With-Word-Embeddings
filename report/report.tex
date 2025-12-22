@@ -57,21 +57,21 @@ What makes the task of tagging challenging is the contextual requirement: withou
 
 \subsection{Word Embeddings}
 A common issue with simple tagging implementations is resistance to parallelisation. Any operation below the level of sentence must be linear, as the tag of the current word depends on the tag(s) of the previous words.
-To get around the linear-time requirement, some taggers use word embeddings, which represent words as vectors. This embedding function takes into account the surrounding words, so that the meaning and context of each word is stored in the embedding.
-Word embeddings are classifier models usually trained using one of two methods: predict target word from context (Continuous Bag of Words, CBOW) and predict context from target word (Skipgram).
-In CBOW, the words surrounding the target word are mapped to one-hot vectors, which are each then projected down to a dense vector by the classifier model and averaged together. This averaged vector is then used to predict the target word.
-In Skipgram, the target word is mapped to a one-hot vector and then projected down to a dense vector by the classifier. This is done for multiple target words, the dense vectors of which are averaged together and used to predict the context in which the target words appear.
+To get around the linear-time requirement, some taggers use word embeddings, which represent words as vectors. This embedding function takes into account the surrounding words, so that the context (but not necessarily meaning) of each word is stored in the embedding.
+Word embeddings are discrimitaive models usually trained using one of two methods: predict target word from context (Continuous Bag of Words, CBOW) and predict context from target word (Skipgram).
+In CBOW, the words surrounding the target word are mapped to one-hot vectors, which are each then processed by the classifier model and used to compute a single vector. This computed vector is then used to predict the target word.
+In Skipgram, the target word is mapped to a one-hot vector and then processed by the classifier model. This vector is then used to predict the context in which the target words appear, and is often done in parallel with other local words run through the same process.
 Using embeddings, tagging can be parallelised at the level of individual words.
 
 \subsubsection{Static Word Embeddings}
 %source: https://courses.grainger.illinois.edu/cs546/sp2020/Slides/Lecture04.pdf
 %source: https://dev.to/ahikmah/understanding-the-evolution-of-word-representation-static-vs-dynamic-embeddings-5331
-While word embeddings take context into account by design, static word embeddings take the naive approach to context. These mapping functions collect all contexts for a given word and uses them to generate a single embedding per word. Often, this approach fails to take into account that words can have different meanings (``river \underline{bank}'' vs. ``\underline{bank} account'') or different syntactic roles. This means that a singular word embedding must hold information on every possible context for any given word, which causes problems when the different meanings of a word are not syntactically or semantically close to one another.
+While word embeddings take the surrounding words into account by design, static word embeddings take the naive approach to syntactic and semantic context. These mapping functions collect all contexts for a given word and uses them to generate a single embedding per word. Often, this approach fails to take into account that words can have different meanings (``river \underline{bank}'' vs. ``\underline{bank} account'') or different syntactic roles. This means that a singular word embedding must hold information on every possible context for any given word, which causes problems when the different meanings of a word are not syntactically or semantically close to one another.
 
 \subsubsection{Contextual Word Embeddings}
 %source: https://www.cs.princeton.edu/courses/archive/spring20/cos598C/lectures/lec3-contextualized-word-embeddings.pdf
-Contextual word embeddings solve the syntactic and semantic problems that static word embeddings have by moving from word embeddings to word token embeddings. Now, words with multiple meanings or syntactic roles are split into multiple word tokens, one for each use.
-Contextual embeddings map these tokens to vectors, preserving specific meaning. With contextual embeddings, a word like ``spot'' is first split into two tokens, such as ``spot--noun'' and ``spot--verb'', and these tokens are embedded separately. While contextual embedding systems are more computationally demanding to train and use, their context-aware nature often leads to increased performance in context-sensitive tasks such as POS tagging.
+Contextual word embeddings solve the syntactic and semantic problems that static word embeddings have by moving from word embeddings to word token embeddings. Now, each instance of a word is a unique token that keeps all its context with it.
+Contextual embeddings map these tokens to vectors, preserving specific meaning. With contextual embeddings, a word like ``spot'' has as many tokens as there are unique occurrences of the word in text. What this ends up producing is clusters of vectors for the word ``spot'', with contexts like ``Can you spot ...'' mapping closer to each other, and separate from a cluster of contexts like ``...that large spot''. While contextual embedding systems are more computationally demanding to train and use, their context-aware nature often leads to increased performance in context-sensitive tasks such as POS tagging.
 
 \section{Motivations}\label{sec_motivations}
 %POS tagging benefit to NLP: TTS, word-sense disambiguation, word order, <--more?-->
@@ -95,11 +95,11 @@ The results from these taggers and parsers are then projected onto the low-resou
 %source: https://arxiv.org/abs/2505.13908
 As well as being useful, the efficacy of cross-linguistic transfer is predictable. Reference (<ref>) found that language families and morphological structures have a major impact on the performance of cross-linguistic performance. Specifically, performance was much higher when the source model for cross-linguistic transfer was in the same language family as the target language. This was especially true of morphologically-rich languages.
 Even outside of the same family, cross-linguistic transfer had better performance when moving between morphologically-rich languages, contrasting with morphologically-poor languages experiencing steeper drops in performance in similar cross-family settings.
-Importantly, no data from the target language was used for training or fine-tuning in these tests, which indicates that a target language being low-resource does not impact the efficacy of cross-linguistic transfer.
+Importantly, no data from the target language was used for training or fine-tuning in these tests, which indicates that a target language being low-resource does not impact the efficacy of cross-linguistic transfer. This further indicates that embeddings trained on a high-resource source language contain information that is useful for a related target language, and therefore could achieve good POS tagging performance on the target dataset with minimal training data.
 
 %contextual embeddings help
 %source: https://aclanthology.org/2020.emnlp-main.391.pdf
-pass
+<>
 
 \subsection{Benefits of an English POS tagger}
 %source: https://aclanthology.org/2022.acl-long.108.pdf
@@ -107,7 +107,7 @@ Finding a good POS tagger for English, a high-resource language, has clear benef
 %source: https://blog.duolingo.com/large-language-model-duolingo-lessons/
 With competent machine translation, more materials can be translated into Scots, which encourages learning and expands which facets of life can be interacted with in Scots. TTS has applications when paired with translation and learning tools, and brings one facet of accessibility into the language as well. Finally, machine-based language learning apps like Duolingo have made use of NLP and AI to provide more language learning content (<ref>), and members of the Scots speaker community can make use of POS tagging directly to help with learning Scots linguistics.
 
-To this end, we will test multiple prominent word embedding models on the same English dataset in order to determine the best model. Knowing the best model <--FINISH THIS-->
+To this end, we will test multiple prominent word embedding models head-to-head on the same English and Norwegian datasets and in order to determine the best model for POS tagging using cross-linguistic transfer.
 %why embeddings instead of LLMs
 %source: https://www.researchgate.net/profile/Kalpita-Birhade/publication/398054170_POS_tagging_with_Neural_networks_vs_Large_language_models_LLMs/links/6928a265abe27c41e5161fe5/POS-tagging-with-Neural-networks-vs-Large-language-models-LLMs.pdf
 %For this study, word embeddings have been chosen over the recently-popular GPT-style architectures for their size, ability to be fine-tuned for very high accuracy, and customisation, while still being able to provide accurate tags (<ref>).
@@ -123,9 +123,11 @@ To this end, we will test multiple prominent word embedding models on the same E
 %papers that do meta-studies but more general
 <--INTRO SENTENCE-->. References (<ref>) and (<ref>) conduct literature reviews of many POS tagging papers published between 2017 and 2023, looking at a variety of deep learning and machine learning approaches. The studies chosen for these reviews span a wide range of both high-resource and low-resource languages, and cover a wide range of topics, from sentiment analysis, subject-predicate recognition, and POS tagging in unusual environments such as social media posts.
 
-A common issue with most of the studies is the lack of a standardised dataset for training or testing on. As a result, the findings from the studies reviewed cannot be directly compared, even between papers analysing the same language. This serves as part of the motivation for our work here. Testing various word embeddings on a standard dataset enables direct comparisons of the embeddings used, as relative performance between NLP implementations is important for the development of the field.
+A common issue with most of the studies is the lack of a standardised dataset for training or testing on. As a result, the findings from the studies reviewed cannot be directly compared, even between papers analysing the same language. Furthermore, there have not been any studies directly comparing the effectiveness of different word embedding models for use in POS tagging models.
+This serves as part of the motivation for our work here. Testing various word embeddings on a standard dataset enables direct comparisons of the embeddings used, as relative performance between NLP implementations is important for the development of the field.
 
-Although many languages were represented in the studies selected for review, there was very little representation of the English language among the selection. Contemporary comparisons of POS taggers on English focus more on specific applications and more niche datasets. This serves as another part of the motivation for our work here. <--FINISH THIS-->
+Although many languages were represented in the studies selected for review, there was very little representation of the English language among the selection. Contemporary comparisons of POS taggers on English focus more on specific applications and more niche datasets.
+This serves as the other part of the motivation for our work here. Considering the importance of a good general POS tagger for work in low-resource languages, it is important to compare contemporary models on general use cases so  new developments in the field of POS tagging are not left unconsidered for cases such as low-resource languages.
 
 \subsection{Studies on Cross-Linguistic Transfer}
 %paper about cross-linguistic transfer but it only used 1 BERT variant
@@ -293,7 +295,7 @@ T5 & \textbf{0.8710} & \textbf{0.8629} & \textbf{0.9212} \\
 \end{tabular}
 \end{table}
 
-\section{Results and Discussion}
+\section{Discussion}
 \subsection{Embedding Quality}
 In our first experiment, we found that the transformer embeddings BERT, XLNet, and T5 were of the highest quality. When tested on an even playing field (The same classifier, training procedures, etc.), they significantly outperformed the non-transformer contextual embedding Flair, which itself significantly outperformed the static embedding baseline of FastText. This indicates that their contextual embeddings, especially transformer-based contextual embeddings, encode a deeper understanding of the underlying syntactic and semantic patterns of the English language, and are thus better suited to POS tagging tasks.
 
@@ -321,14 +323,14 @@ Since these metrics are measures of performance on rare classes, it is likely th
 With the rapidly evolving field of machine learning, new models and architectures are released each year. It is only a matter of time before the top performing models in this paper, like T5, will be outclassed in terms of embedding quality. T5 may currently be the best option for use in POS tagging of English, and its related low-resource languages, but this will not be the case forever. Research comparing today's models to the future state-of-the-art for use in this problem may be necessary as the field moves ever forward.
 
 \section{Conclusion}
-In this paper, we study the POS tagging performance of popular word embeddings for English, as well as briefly examine the theoretical impacts of high-quality word embeddings in English on POS tagging and NLP in other languages.
+In this paper, we study the POS tagging performance of popular word embeddings for English, as well as briefly examine the theoretical impacts of high-quality English word embeddings on POS tagging and NLP in other languages.
 %hypotheses: transformer embeddings better, good embeddings for high-resource are good for low-resource, good embeddings for high-resource tag well on low-resource
 
-We found that that the transformer-based contextual word embeddings of BERT, XLNet, and T5 performed best with F1 scores all over 97\%, and that contextual word embeddings in general greatly outperformed static word embeddings. This is consistent with linguistic theory, and suggests that properly accounting for and encoding context is important for many NLP tasks even beyond POS tagging.
+We found that that the transformer-based contextual word embeddings of BERT, XLNet, and T5 performed best with F1 scores all over 97\%, suggesting that their embeddings contain the richest information for the task of POS tagging. Additionally, we found that contextual word embeddings in general greatly outperformed static word embeddings. This is consistent with linguistic theory, and suggests that properly accounting for and encoding context is important for many NLP tasks even beyond POS tagging.
 
-Regarding the transfer of models between languages, we found that relative performance between embedding models stayed consistent when training embeddings and models on a related language, and furthermore, that this holds for a low-resource related language. This is promising for new work in these languages, and we encourage the use of transformer-based contextual embedding models on low-resource languages wherever possible.
+Regarding the transfer of models between languages, we found that relative performance between embedding models stayed consistent when training embeddings and models on a related language. Furthermore, that this holds for a low-resource related language. This is promising for new work in these languages, and we encourage the use of transformer-based contextual embedding models on low-resource languages wherever possible. Furthermore, the consistent relative performance indicates that good English embeddings can be used as, or can be easily trained to be, good embeddings for related low-resource languages.
 
-Somewhat consistent with existing literature cross-linguistic transfer of POS tags into low-resource languages, we found that training models and embeddings on English before fine-tuning the models on Norwegian raised F1 scores for the best models, T5 and XLNet, when compared to their training results on Norwegian.
+Somewhat consistent with existing literature cross-linguistic transfer of POS tags into low-resource languages, we found that training models and embeddings on English POS tags before fine-tuning the models for Norwegian POS tagging raised F1 scores for the best models, T5 and XLNet, when compared to their training results on Norwegian.
 Interestingly, BERT's performance on this task actually decreased compared to its Norwegian results. While the studies we found on cross-linguistic transfer used RoBERTa (<ref>),(<ref>), a variant of BERT compared to our use of base BERT, it is worth considering the use of T5 and XLNet in future studies on this topic.
 
 \subsection{Future Work}
