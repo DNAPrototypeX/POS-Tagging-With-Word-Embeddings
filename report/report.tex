@@ -12,7 +12,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Part-of-Speech Tagging using Contextual Word Embeddings}
+\title{Part-of-Speech Tagging in English using Contextual Word Embeddings}
 
 \author{\IEEEauthorblockN{Juhani Dickinson}
 \IEEEauthorblockA{\texttt{jdickin9@uwo.ca}}
@@ -72,17 +72,10 @@ While word embeddings take context into account by design, static word embedding
 Contextual word embeddings solve the syntactic and semantic problems that static word embeddings have by moving from word embeddings to word token embeddings. Now, words with multiple meanings or syntactic roles are split into multiple word tokens, one for each use.
 Contextual embeddings map these tokens to vectors, preserving specific meaning. With contextual embeddings, a word like ``spot'' is first split into two tokens, such as ``spot--noun'' and ``spot--verb'', and these tokens are embedded separately. While contextual embedding systems are more computationally demanding to train and use, their context-aware nature often leads to increased performance in context-sensitive tasks such as POS tagging.
 
-\section{Related Work}
-pass
-%papers that do meta-studies but more general
-%paper about cross-linguistic transfer but it only used BERT variants
-%the embeddings we're working with: FLAIR, XLNet, BERT, T5, FastText
-%we need to say something about BERT using contextual word embeddings
-
-\section{Motivation}
+\section{Motivations}\label{sec_motivations}
 %POS tagging benefit to NLP: TTS, word-sense disambiguation, word order, <--more?-->
 %source: http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202024%20-%20D/CSE%20%20IT%20AIDS%20ML/NATURAL%20LANGUAGE%20PROCESSING%20IN%20ARTIFICIAL%20INTELLIGENCE.pdf#page=150
-Part-of-speech tags are useful and sometimes key pieces of information in many natural language processing (NLP) tasks such as text-to-speech (TTS), word-sense disambiguation, marking word order, and named entity recognition (<ref>).
+POS tags are useful and sometimes key pieces of information in many natural language processing (NLP) tasks such as text-to-speech (TTS), word-sense disambiguation, marking word order, and named entity recognition (<ref>).
 In TTS applications, the pronunciation of a word can change depending on what its syntactic role is or sometimes even what tense it is. The word ``resume'' is pronounced differently based on whether it is meant as ``continue doing'' or as ``a document detailing professional experience'', which can be easily disambiguated based on whether it acts as a verb or a noun.
 This disambiguation-by-tag is also used in word-sense disambiguation, like in sentence \ref{pos_tag_example}. In a search-engine setting, understanding whether ``spot'' refers to an activity or a visual marker allows for more accurate search results.
 
@@ -124,6 +117,30 @@ To this end, we will test multiple prominent word embedding models on the same E
 %meaning disambiguation and understanding
 %decoder-only LLMs do worse at meaning understanding https://aclanthology.org/2024.findings-acl.967/
 
+\section{Related Work}
+\subsection{Existing Reviews of POS Taggers}
+%papers that do meta-studies but more general
+<--INTRO SENTENCE-->. References (<ref>) and (<ref>) conduct literature reviews of many POS tagging papers published between 2017 and 2023, looking at a variety of deep learning and machine learning approaches. The studies chosen for these reviews span a wide range of both high-resource and low-resource languages, <>
+<>
+
+A common issue with most of the studies is the lack of a standardised dataset for training or testing on. As a result, the findings from the studies reviewed cannot be directly compared, even between papers analysing the same language. This serves as part of the motivation for our work here. Testing various word embeddings on a standard dataset provides a <>
+
+Although many languages were represented in the studies selected for review, there was very little representation of the English language among the selection. Contemporary comparisons of POS taggers on English focus more on specific applications and more niche datasets. <>
+
+\subsection{Studies on Cross-Linguistic Transfer}
+%paper about cross-linguistic transfer but it only used 1 BERT variant
+Discussed above in \ref{sec_motivations}, (<ref>) provides crucial insights into the efficacy and patterns of cross-linguistic transfer. In this study, source-target language pairs were created from the chosen languages, and the XLM-RoBERTa multilingual transformer model was fine-tuned on each source language to serve as the POS tagger. Each pair was then analysed in terms of model performance, both quantitatively through precision, recall, and F1 scores, and qualitatively, through examining the areas where errors occurred to find commonly-appearing linguistic features such as morphology.
+With this work as inspiration, we will consider cross-linguistic transfer over a more diverse set of word embeddings rather than only a BERT variant. While we do not conduct any qualitative analyses on our results, <>
+
+%paper on graph label projection
+Like (<ref.prev>), (<ref>) uses word embeddings generated by XLM-RoBERTa, <>
+%once GLP generates data, trains a BiLSTM tagger with XLM-RoBERTa embeddings then tests that.
+%used Stanza to tag in high-resource language
+
+\subsection{Word Embeddings Used}
+%the embeddings we're working with: FLAIR, XLNet, BERT, T5, FastText
+%we need to say something about BERT using contextual word embeddings
+
 \section{Methods}
 pass
 
@@ -132,6 +149,9 @@ pass
 
 \section{Conclusion}
 pass
+
+\section{Acknowledgements}
+<--LLM USE YES/NO-->
 
 %\section*{References}
 \begin{thebibliography}{00}
