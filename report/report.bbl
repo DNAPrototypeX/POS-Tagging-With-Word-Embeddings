@@ -21,6 +21,65 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{ghosh2020parts}
+S.~Ghosh and B.~K. Mishra, ``Parts-of-speech tagging in nlp: Utility, types,
+  and some popular pos taggers,'' in \emph{Natural Language Processing in
+  Artificial Intelligence}.\hskip 1em plus 0.5em minus 0.4em\relax Apple
+  Academic Press, 2020, pp. 131--165.
+
+\bibitem{imanigooghari-etal-2022-graph}
+\BIBentryALTinterwordspacing
+A.~Imani, S.~Severini, M.~Jalili~Sabet, F.~Yvon, and H.~Sch{\"u}tze,
+  ``Graph-based multilingual label propagation for low-resource part-of-speech
+  tagging,'' in \emph{Proceedings of the 2022 Conference on Empirical Methods
+  in Natural Language Processing}, Y.~Goldberg, Z.~Kozareva, and Y.~Zhang,
+  Eds.\hskip 1em plus 0.5em minus 0.4em\relax Abu Dhabi, United Arab Emirates:
+  Association for Computational Linguistics, Dec. 2022, pp. 1577--1589.
+  [Online]. Available: \url{https://aclanthology.org/2022.emnlp-main.102/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{hlaing2022improving}
+Z.~Z. Hlaing, Y.~K. Thu, T.~Supnithi, and P.~Netisopakul, ``Improving neural
+  machine translation with pos-tag features for low-resource language pairs,''
+  \emph{Heliyon}, vol.~8, no.~8, 2022.
+
+\bibitem{crosslinguistictransfer}
+\BIBentryALTinterwordspacing
+A.~Bankula and P.~Bankula, ``Cross-linguistic transfer in multilingual nlp: The
+  role of language families and morphology,'' 2025. [Online]. Available:
+  \url{https://arxiv.org/abs/2505.13908}
+\BIBentrySTDinterwordspacing
+
+\bibitem{moseley2010atlas}
+C.~Moseley, \emph{Atlas of the World's Languages in Danger}.\hskip 1em plus
+  0.5em minus 0.4em\relax Unesco, 2010.
+
+\bibitem{zhang-etal-2022-nlp}
+\BIBentryALTinterwordspacing
+S.~Zhang, B.~Frey, and M.~Bansal, ``How can {NLP} help revitalize endangered
+  languages? a case study and roadmap for the {C}herokee language,'' in
+  \emph{Proceedings of the 60th Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)}, S.~Muresan, P.~Nakov, and
+  A.~Villavicencio, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Dublin,
+  Ireland: Association for Computational Linguistics, May 2022, pp. 1529--1541.
+  [Online]. Available: \url{https://aclanthology.org/2022.acl-long.108/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{duolingo}
+``How duolingo uses ai to create lessons faster,''
+  \url{https://blog.duolingo.com/large-language-model-duolingo-lessons/},
+  accessed: 2025-12-18.
+
+\bibitem{chiche2022part}
+A.~Chiche and B.~Yitagesu, ``Part of speech tagging: a systematic review of
+  deep learning and machine learning approaches,'' \emph{Journal of Big Data},
+  vol.~9, no.~1, p.~10, 2022.
+
+\bibitem{baruah2025comparative}
+N.~Baruah and P.~J. Goutom, ``A comparative analysis of deep learning and
+  machine learning for pos tagging,'' \emph{Expert Systems with Applications},
+  vol. 288, p. 128026, 2025.
+
 \bibitem{fasttext}
 A.~Joulin, E.~Grave, P.~Bojanowski, and T.~Mikolov, ``Bag of tricks for
   efficient text classification,'' in \emph{Proceedings of the 15th Conference

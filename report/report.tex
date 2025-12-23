@@ -8,6 +8,7 @@
 \usepackage{linguex}
 \usepackage{booktabs} % For professional quality lines
 \usepackage{multirow} % Optional, for grouping rows
+\usepackage{url}
 \graphicspath{{..}}
 
 \begin{document}
@@ -78,24 +79,24 @@ Contextual embeddings map these tokens to vectors, preserving specific meaning. 
 \section{Motivations}\label{sec_motivations}
 %POS tagging benefit to NLP: TTS, word-sense disambiguation, word order, <--more?-->
 %source: http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202024%20-%20D/CSE%20%20IT%20AIDS%20ML/NATURAL%20LANGUAGE%20PROCESSING%20IN%20ARTIFICIAL%20INTELLIGENCE.pdf#page=150
-POS tags are useful and sometimes key pieces of information in many natural language processing (NLP) tasks such as text-to-speech (TTS), word-sense disambiguation, marking word order, and named entity recognition (<ref>).
+POS tags are useful and sometimes key pieces of information in many natural language processing (NLP) tasks such as text-to-speech (TTS), word-sense disambiguation, marking word order, and named entity recognition \cite{ghosh2020parts}.
 In TTS applications, the pronunciation of a word can change depending on what its syntactic role is or sometimes even what tense it is. The word ``resume'' is pronounced differently based on whether it is meant as ``continue doing'' or as ``a document detailing professional experience'', which can be easily disambiguated based on whether it acts as a verb or a noun.
 This disambiguation-by-tag is also used in word-sense disambiguation, like in sentence \ref{pos_tag_example}. In a search-engine setting, understanding whether ``spot'' refers to an activity or a visual marker allows for more accurate search results.
 
 \subsection{Benefits for NLP in Low-Resource Languages}
 %source: https://aclanthology.org/2022.emnlp-main.102.pdf
-While high-resource languages like English no longer use POS tagging in some popular NLP applications like AI assistants by making use of the massive collections of curated data now available, most languages do not have the luxury of large, high-quality datasets. In these low-resource languages, POS tags are still critical for NLP tasks.
+While high-resource languages like English no longer use POS tagging in some popular NLP applications like AI assistants by making use of the massive collections of curated data now available, most languages do not have the luxury of large, high-quality datasets. In these low-resource languages, POS tags are still critical for NLP tasks \cite{imanigooghari-etal-2022-graph}.
 %benefit to translation in low-resource languages
 %source: https://www.sciencedirect.com/science/article/pii/S2405844022016632
-For a task like machine translation, (<ref>) found that using linguistic features derived from POS tags improved the translation performance not only between the low-resource language pair of Thai and Myanmar but also between Thai and English and Myanmar and English. While the highest accuracy was found on English-Thai translations, likely due to both languages having a Subject-Verb-Object sentence structure, the English-Myanmar and Thai-Myanmar pairs both saw improvements over the baseline.
+For a task like machine translation, \cite{hlaing2022improving} found that using linguistic features derived from POS tags improved the translation performance not only between the low-resource language pair of Thai and Myanmar but also between Thai and English and Myanmar and English. While the highest accuracy was found on English-Thai translations, likely due to both languages having a Subject-Verb-Object sentence structure, the English-Myanmar and Thai-Myanmar pairs both saw improvements over the baseline.
 
 %why finding the best model for a high-resource language helps in low-resource languages
 %source: https://aclanthology.org/2022.emnlp-main.102.pdf
-While some low-resource languages have POS taggers or have the resources available for one to be reasonably made, many such languages do not. In such cases, POS taggers for high-resource languages are still quite useful. In low-resource languages where training data is scarce, one established method of finding training data is to use cross-linguistic transfer to automatically generate POS training data. This is done by lining up texts that appear in both a high-resource language and the target low-resource language and running POS taggers and parsers for the high-resource language (<ref>).
-The results from these taggers and parsers are then projected onto the low-resource text. With an advanced projection method such as Graph Label Propagation (GLP) proposed by (<ref>) to transfer tags from only English, tagging accuracy on a variety of languages averaged 80.6\%. Notably, methods such as GLP can leverage multiple parallel texts from high-resource languages to increase performance even further, with tests on the same variety of languages achieving an accuracy of 84.0\%. However, leveraging multiple languages simultaneously is not always possible for certain low-resource languages due to the lack of available parallel data.
+While some low-resource languages have POS taggers or have the resources available for one to be reasonably made, many such languages do not. In such cases, POS taggers for high-resource languages are still quite useful. In low-resource languages where training data is scarce, one established method of finding training data is to use cross-linguistic transfer to automatically generate POS training data. This is done by lining up texts that appear in both a high-resource language and the target low-resource language and running POS taggers and parsers for the high-resource language \cite{imanigooghari-etal-2022-graph}.
+The results from these taggers and parsers are then projected onto the low-resource text. With an advanced projection method such as Graph Label Propagation (GLP) proposed by \cite{imanigooghari-etal-2022-graph} to transfer tags from only English, tagging accuracy on a variety of languages averaged 80.6\%. Notably, methods such as GLP can leverage multiple parallel texts from high-resource languages to increase performance even further, with tests on the same variety of languages achieving an accuracy of 84.0\%. However, leveraging multiple languages simultaneously is not always possible for certain low-resource languages due to the lack of available parallel data.
 
 %source: https://arxiv.org/abs/2505.13908
-As well as being useful, the efficacy of cross-linguistic transfer is predictable. Reference (<ref>) found that language families and morphological structures have a major impact on the performance of cross-linguistic performance. Specifically, performance was much higher when the source model for cross-linguistic transfer was in the same language family as the target language. This was especially true of morphologically-rich languages.
+As well as being useful, the efficacy of cross-linguistic transfer is predictable. Reference \cite{crosslinguistictransfer} found that language families and morphological structures have a major impact on the performance of cross-linguistic performance. Specifically, performance was much higher when the source model for cross-linguistic transfer was in the same language family as the target language. This was especially true of morphologically-rich languages.
 Even outside of the same family, cross-linguistic transfer had better performance when moving between morphologically-rich languages, contrasting with morphologically-poor languages experiencing steeper drops in performance in similar cross-family settings.
 Importantly, no data from the target language was used for training or fine-tuning in these tests, which indicates that a target language being low-resource does not impact the efficacy of cross-linguistic transfer. This further indicates that embeddings trained on a high-resource source language contain information that is useful for a related target language, and therefore could achieve good POS tagging performance on the target dataset with minimal training data.
 
@@ -104,9 +105,9 @@ Importantly, no data from the target language was used for training or fine-tuni
 
 \subsection{Benefits of an English POS tagger}
 %source: https://aclanthology.org/2022.acl-long.108.pdf
-Finding a good POS tagger for English, a high-resource language, has clear benefits for linguistically-related low-resource languages due to the success of cross-linguistic transfer. One example is Scots, a language in the Anglic family currently considered ``vulnerable'' by the UNESCO Atlas of the World's Languages in Danger (<ref>). Research suggests that NLP can support and help revitalise endangered languages (<ref>) through machine translation, TTS, and integration into learning materials.
+Finding a good POS tagger for English, a high-resource language, has clear benefits for linguistically-related low-resource languages due to the success of cross-linguistic transfer. One example is Scots, a language in the Anglic family currently considered ``vulnerable'' by the UNESCO Atlas of the World's Languages in Danger \cite{moseley2010atlas}. Research suggests that NLP can support and help revitalise endangered languages \cite{zhang-etal-2022-nlp} through machine translation, TTS, and integration into learning materials.
 %source: https://blog.duolingo.com/large-language-model-duolingo-lessons/
-With competent machine translation, more materials can be translated into Scots, which encourages learning and expands which facets of life can be interacted with in Scots. TTS has applications when paired with translation and learning tools, and brings one facet of accessibility into the language as well. Finally, machine-based language learning apps like Duolingo have made use of NLP and AI to provide more language learning content (<ref>), and members of the Scots speaker community can make use of POS tagging directly to help with learning Scots linguistics.
+With competent machine translation, more materials can be translated into Scots, which encourages learning and expands which facets of life can be interacted with in Scots. TTS has applications when paired with translation and learning tools, and brings one facet of accessibility into the language as well. Finally, machine-based language learning apps like Duolingo have made use of NLP and AI to provide more language learning content \cite{duolingo}, and members of the Scots speaker community can make use of POS tagging directly to help with learning Scots linguistics.
 
 To this end, we will test multiple prominent word embedding models head-to-head on the same English and Norwegian datasets and in order to determine the best model for POS tagging using cross-linguistic transfer.
 %why embeddings instead of LLMs
@@ -122,7 +123,7 @@ To this end, we will test multiple prominent word embedding models head-to-head 
 \section{Related Work}
 \subsection{Existing Reviews of POS Taggers}
 %papers that do meta-studies but more general
-Since POS tagging is a popular and foundational task to many NLP applications, many studies are done each year focusing on the challenges or potential new applications of POS tagging. References (<ref>) and (<ref>) conduct literature reviews of many POS tagging papers published between 2017 and 2023, looking at a variety of deep learning and machine learning approaches.
+Since POS tagging is a popular and foundational task to many NLP applications, many studies are done each year focusing on the challenges or potential new applications of POS tagging. References \cite{chiche2022part} and \cite{baruah2025comparative} conduct literature reviews of many POS tagging papers published between 2017 and 2023, looking at a variety of deep learning and machine learning approaches.
 The studies chosen for these reviews span a wide range of both high-resource and low-resource languages, and cover a wide range of topics, from sentiment analysis, subject-predicate recognition, and POS tagging in unusual environments such as social media posts.
 
 A common issue with most of the studies is the lack of a standardised dataset for training or testing on. As a result, the findings from the studies reviewed cannot be directly compared, even between papers analysing the same language. Furthermore, there have not been any studies directly comparing the effectiveness of different word embedding models for use in POS tagging models.
@@ -133,7 +134,7 @@ This serves as the other part of the motivation for our work here. Considering t
 
 \subsection{Studies on Cross-Linguistic Transfer}
 %paper about cross-linguistic transfer but it only used 1 BERT variant
-Discussed above in Section \ref{sec_motivations}, (<ref>) provides crucial insights into the efficacy and patterns of cross-linguistic transfer. In this study, source-target language pairs were created from the chosen languages, and the XLM-RoBERTa multilingual transformer model was fine-tuned on each source language to serve as the POS tagger. Each pair was then analysed in terms of model performance, both quantitatively through precision, recall, and F1 scores, and qualitatively, through examining the areas where errors occurred to find commonly-appearing linguistic features such as morphology.
+Discussed above in Section \ref{sec_motivations}, \ref{crosslinguistictransfer} provides crucial insights into the efficacy and patterns of cross-linguistic transfer. In this study, source-target language pairs were created from the chosen languages, and the XLM-RoBERTa multilingual transformer model was fine-tuned on each source language to serve as the POS tagger. Each pair was then analysed in terms of model performance, both quantitatively through precision, recall, and F1 scores, and qualitatively, through examining the areas where errors occurred to find commonly-appearing linguistic features such as morphology.
 However, this study only uses BERT embeddings. While recreating this study using multiple embeddings is outside the scope of this work, we take inspiration from this by considering cross-linguistic transfer from English into Norwegian, both Germanic languages.
 
 %paper on graph label projection
@@ -153,29 +154,24 @@ FastText is a static word embedding developed by Facebook, designed to be fast t
 FastText was chosen for our work as our static embedding baseline for its ability to handle Out-of-Vocabulary (OOV) words, or words that were never seen in training. It does this by pooling embeddings for character $n$-grams instead of outputting word vectors directly. This is important for us as we perform tests on Norwegian as well as English, where nearly every word will be OOV.
 
 %https://www.sciencedirect.com/science/article/pii/S1877050922010134
-Reference \cite{badri2022combining} uses FastText in tandem with GloVe, another static word embedding, to detect offensive speech and hate speech. FastText was used for its ability to provide embeddings for OOV words, which can sometimes appear in hate speech and offensive speech.
+Badri et al. \cite{badri2022combining} uses FastText in tandem with GloVe, another static word embedding, to detect offensive speech and hate speech. FastText was used for its ability to provide embeddings for OOV words, which can sometimes appear in hate speech and offensive speech.
 
 \subsubsection{Flair}
 Flair is the only non-transformer-based contextual word embedding we tested, as more recent popular and public contextual models are transformer-based \cite{T5}. The embedding portion of the Flair architecture consists of a character-based BiLSTM, which treats input text as a character sequence instead of a word sequence \cite{flair}. By using a bidirectional LSTM, the Flair embeddings captures syntactic and semantic context both from the start of the sentence to the first character in the word and from the end of the sentence to the last character. The final word embedding is the concatenation of the two character-based contexts.
 
-Reference \cite{rojas2022clinical} creates a domain-specific Flair model called Clinical Flair, for use in Spanish-language clinical conditions. Due to abundant misspellings and untrained medical words found in clinical narratives, Flair was chosen due to its character-level processing, which, like FastText, is useful for handling OOV words.
+Flair has been proven to be effective in applications that demand good out of vocabulary performance. For example, \cite{rojas2022clinical} creates a domain-specific Flair model called Clinical Flair, for use in Spanish-language clinical conditions. Due to abundant misspellings and untrained medical words found in clinical narratives, Flair was chosen due to its character-level processing, which, like FastText, is useful for handling OOV words.
 
 \subsubsection{BERT}
 BERT, which stands for Bidirectional Encoder Representations from Transformers, is a transformer-based contextual embedding model \cite{devlin-etal-2019-bert}. The architecture of BERT is a multi-layer bidirectional transformer encoder. In training, BERT is trained using a masked language model (MLM) task, where random tokens from the input sentence are obscured (masked) and the model is tasked with predicting the masked word based on the context. The bidirectional nature ensures that context is received from both sides of the masked word. Word embeddings can be read from BERT by extracting activations from the inner layers.
 
-Reference \cite{wang2019text} uses BERT word embeddings for text representation in an automatic text summarization model. BERT was used for its ``rich semantic features'', which at the time of work, were state-of-the-art.
+BERT has been used to advance the state-of-the-art in  many NLP tasks such as \cite{wang2019text}, which uses BERT word embeddings for text representation in an automatic text summarization model.
 
 \subsubsection{XLNet}
 XLNet was developed in response to BERT, and claims that relying on input corruption via masking ``neglects dependency between the masked positions'' \cite{XLNet}. Another transformer-based contextual embedding model, XLNet's architecture uses two-stream self-attention, which uses both a query stream and a content stream during training. The query stream uses only the target position and not the target content to predict the token, and the content stream uses both the target position and content to predict the token. Reading activations from the content stream results in word embeddings.
 
-<--STUDY USING IT-->
-
 \subsubsection{T5}
 %most recently published
 T5, which stands for Text-to-Text Transfer Transformer, is the most recently published contextual word embedding model used in this study. It takes a novel approach to text processing by treating every problem as a ``text-to-text'' problem \cite{T5}. T5 is an encoder-decoder transformer trained by self-attention. The encoder portion consists of a series of ``blocks'' consisting of a self-attention layer and a small feed-forward network, with scaling-only layer normalisation between each component inside each block. Word embeddings are obtained by using the outputs of the encoder.
-
-%https://arxiv.org/abs/2409.16760
-<--STUDY USING IT-->
 
 \section{Methods}
 \subsection{Hypotheses}
@@ -333,7 +329,7 @@ In our first experiment, we found that the transformer embeddings BERT, XLNet, a
 \subsection{Generalizability}
 In our second experiment, we found that higher quality embeddings, and therefore higher POS tagging performance, on a high-resource language results in higher performance on a related low-resource language. The models using T5, XLNet, and BERT, who achieved very high accuracy on the English dataset, performed similarly relative to each other and the other models on the downsampled Norwegian dataset. This indicates that the transformer embeddings are capable of generalizing to languages that are related to English, including low-resource languages.
 
-This easy generalizability is notable in itself in, as it suggests that an embedding model that performs better than its competition in a high-resource language is likely to perform better than that same competition in a lower-resource language. This is especially useful for studies on other languages, as many studies that used word embeddings for work in other languages used static word embeddings, often Word2Vec (<ref.metastudies>).
+This easy generalizability is notable in itself in, as it suggests that an embedding model that performs better than its competition in a high-resource language is likely to perform better than that same competition in a lower-resource language. This is especially useful for studies on other languages, as many studies that used word embeddings for work in other languages used static word embeddings, often Word2Vec \cite{chiche2022part, baruah2025comparative}.
 
 \subsection{Pre-Training and Fine-Tuning}
 While not the focus of this paper, our third experiment revealed that pre-training the classifier head of the tagging model on the source language before fine-tuning the whole model on a target language can result in a performance increase even with the simplest possible classifier. It would not be crazy to assume that the benefits of such pre-training would be amplified by a more sophisticated classification model like many of the state-of-the-art taggers, who use a BiLSTM.
@@ -362,7 +358,7 @@ We found that that the transformer-based contextual word embeddings of BERT, XLN
 Regarding the transfer of models between languages, we found that relative performance between embedding models stayed consistent when training embeddings and models on a related language. Furthermore, that this holds for a low-resource related language. This is promising for new work in these languages, and we encourage the use of transformer-based contextual embedding models on low-resource languages wherever possible. Furthermore, the consistent relative performance indicates that good English embeddings can be used as, or can be easily trained to be, good embeddings for related low-resource languages.
 
 Somewhat consistent with existing literature cross-linguistic transfer of POS tags into low-resource languages, we found that training models and embeddings on English POS tags before fine-tuning the models for Norwegian POS tagging raised F1 scores for the best models, T5 and XLNet, when compared to their training results on Norwegian.
-Interestingly, BERT's performance on this task actually decreased compared to its Norwegian results. While the studies we found on cross-linguistic transfer used RoBERTa (<ref>),(<ref>), a variant of BERT compared to our use of base BERT, it is worth considering the use of T5 and XLNet in future studies on this topic.
+Interestingly, BERT's performance on this task actually decreased compared to its Norwegian results. While the studies we found on cross-linguistic transfer used RoBERTa \cite{crosslinguistictransfer, imanigooghari-etal-2022-graph}, a variant of BERT compared to our use of base BERT, it is worth considering the use of T5 and XLNet in future studies on this topic.
 
 \subsection{Future Work}
 %future work on comparing taggers
@@ -372,14 +368,14 @@ Considering the prevalence of LLMs in the past few years, it is possible that im
 
 %future work on low-resource languages
 Considering our baseline test on cross-linguistic transfer from English to a simulated low-resource Norwegian, there are many directions to go for future work on low-resource languages. In the short term, attempting to generalise these findings by replicating the methodology using a few low-resource languages as targets provides additional empirical evidence for the usefulness of a high-quality embedding such as T5 in low-resource contexts.
-In the longer term, studies such as (<ref.crossfamilies>) should be revisited either using the best-performing embedding to keep expected performance metrics up to date with the current state-of-the-art as well as to find any notable changes in performance between languages with certain (lack of) linguistic features. This can be further expanded to test multiple embeddings simultaneously, as what is a great embedding for cross-linguistic transfer in one language family may not be the best or even good at cross-linguistic transfer in other language families.
+In the longer term, studies such as \cite{crosslinguistictransfer} should be revisited either using the best-performing embedding to keep expected performance metrics up to date with the current state-of-the-art as well as to find any notable changes in performance between languages with certain (lack of) linguistic features. This can be further expanded to test multiple embeddings simultaneously, as what is a great embedding for cross-linguistic transfer in one language family may not be the best or even good at cross-linguistic transfer in other language families.
 
 \section{Acknowledgements}
 \subsection{AI Use Acknowledgement}
 We did not use any LLMs to assist in writing this report.
 
 \subsection{Source code}
-We release all code used to train and evaluate the models publicly. These resources can be found at my github. \footnote{https://github.com/DNAPrototypeX/POS-Tagging-With-Word-Embeddings/}
+We release all code used to train and evaluate the models publicly. These resources can be found at my github\footnote{https://github.com/DNAPrototypeX/POS-Tagging-With-Word-Embeddings/}.
 
 %\section*{References}
 \bibliography{references}
