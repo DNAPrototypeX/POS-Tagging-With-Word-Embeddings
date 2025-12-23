@@ -21,13 +21,38 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{vaswani_attention_2017}
-A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez, L.~u.
-  Kaiser, and I.~Polosukhin, ``Attention is {All} you {Need},'' in
-  \emph{Advances in {Neural} {Information} {Processing} {Systems}}, I.~Guyon,
-  U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus, S.~Vishwanathan, and
-  R.~Garnett, Eds., vol.~30.\hskip 1em plus 0.5em minus 0.4em\relax Curran
-  Associates, Inc., 2017.
+\bibitem{fasttext}
+A.~Joulin, E.~Grave, P.~Bojanowski, and T.~Mikolov, ``Bag of tricks for
+  efficient text classification,'' in \emph{Proceedings of the 15th Conference
+  of the {E}uropean Chapter of the Association for Computational Linguistics:
+  Volume 2, Short Papers}, M.~Lapata, P.~Blunsom, and A.~Koller, Eds.\hskip 1em
+  plus 0.5em minus 0.4em\relax Valencia, Spain: Association for Computational
+  Linguistics, Apr. 2017.
+
+\bibitem{badri2022combining}
+N.~Badri, F.~Kboubi, and A.~H. Chaibi, ``Combining fasttext and glove word
+  embedding for offensive and hate speech text detection,'' \emph{Procedia
+  Computer Science}, vol. 207, pp. 769--778, 2022.
+
+\bibitem{T5}
+C.~Raffel, N.~Shazeer, A.~Roberts, K.~Lee, S.~Narang, M.~Matena, Y.~Zhou,
+  W.~Li, and P.~J. Liu, ``Exploring the limits of transfer learning with a
+  unified text-to-text transformer,'' \emph{Journal of Machine Learning
+  Research}, vol.~21, no. 140, pp. 1--67, 2020.
+
+\bibitem{flair}
+A.~Akbik, D.~Blythe, and R.~Vollgraf, ``Contextual string embeddings for
+  sequence labeling,'' in \emph{Proceedings of the 27th International
+  Conference on Computational Linguistics}, E.~M. Bender, L.~Derczynski, and
+  P.~Isabelle, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Santa Fe, New
+  Mexico, USA: Association for Computational Linguistics, Aug. 2018, pp.
+  1638--1649.
+
+\bibitem{rojas2022clinical}
+M.~Rojas, J.~Dunstan, and F.~Villena, ``Clinical flair: A pre-trained language
+  model for spanish clinical natural language processing,'' in
+  \emph{Proceedings of the 4th Clinical Natural Language Processing Workshop},
+  2022, pp. 87--92.
 
 \bibitem{devlin-etal-2019-bert}
 J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova, ``{BERT}: Pre-training of
@@ -38,6 +63,11 @@ J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova, ``{BERT}: Pre-training of
   Eds.\hskip 1em plus 0.5em minus 0.4em\relax Minneapolis, Minnesota:
   Association for Computational Linguistics, Jun. 2019, pp. 4171--4186.
 
+\bibitem{wang2019text}
+Q.~Wang, P.~Liu, Z.~Zhu, H.~Yin, Q.~Zhang, and L.~Zhang, ``A text abstraction
+  summary model based on bert word embedding and reinforcement learning,''
+  \emph{Applied Sciences}, vol.~9, no.~21, p. 4701, 2019.
+
 \bibitem{XLNet}
 Z.~Yang, Z.~Dai, Y.~Yang, J.~Carbonell, R.~R. Salakhutdinov, and Q.~V. Le,
   ``Xlnet: Generalized autoregressive pretraining for language understanding,''
@@ -46,32 +76,18 @@ Z.~Yang, Z.~Dai, Y.~Yang, J.~Carbonell, R.~R. Salakhutdinov, and Q.~V. Le,
   and R.~Garnett, Eds., vol.~32.\hskip 1em plus 0.5em minus 0.4em\relax Curran
   Associates, Inc., 2019.
 
-\bibitem{T5}
-C.~Raffel, N.~Shazeer, A.~Roberts, K.~Lee, S.~Narang, M.~Matena, Y.~Zhou,
-  W.~Li, and P.~J. Liu, ``Exploring the limits of transfer learning with a
-  unified text-to-text transformer,'' \emph{Journal of Machine Learning
-  Research}, vol.~21, no. 140, pp. 1--67, 2020.
-
-\bibitem{fasttext}
-A.~Joulin, E.~Grave, P.~Bojanowski, and T.~Mikolov, ``Bag of tricks for
-  efficient text classification,'' in \emph{Proceedings of the 15th Conference
-  of the {E}uropean Chapter of the Association for Computational Linguistics:
-  Volume 2, Short Papers}, M.~Lapata, P.~Blunsom, and A.~Koller, Eds.\hskip 1em
-  plus 0.5em minus 0.4em\relax Valencia, Spain: Association for Computational
-  Linguistics, Apr. 2017.
+\bibitem{vaswani_attention_2017}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez, L.~u.
+  Kaiser, and I.~Polosukhin, ``Attention is {All} you {Need},'' in
+  \emph{Advances in {Neural} {Information} {Processing} {Systems}}, I.~Guyon,
+  U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus, S.~Vishwanathan, and
+  R.~Garnett, Eds., vol.~30.\hskip 1em plus 0.5em minus 0.4em\relax Curran
+  Associates, Inc., 2017.
 
 \bibitem{word2vec}
 T.~Mikolov, K.~Chen, G.~Corrado, and J.~Dean, ``Efficient estimation of word
   representations in vector space,'' \emph{Proceedings of Workshop at ICLR},
   vol. 2013, 01 2013.
-
-\bibitem{flair}
-A.~Akbik, D.~Blythe, and R.~Vollgraf, ``Contextual string embeddings for
-  sequence labeling,'' in \emph{Proceedings of the 27th International
-  Conference on Computational Linguistics}, E.~M. Bender, L.~Derczynski, and
-  P.~Isabelle, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Santa Fe, New
-  Mexico, USA: Association for Computational Linguistics, Aug. 2018, pp.
-  1638--1649.
 
 \bibitem{UD_ENGLISH}
 N.~Silveira, T.~Dozat, M.-C. de~Marneffe, S.~Bowman, M.~Connor, J.~Bauer, and
